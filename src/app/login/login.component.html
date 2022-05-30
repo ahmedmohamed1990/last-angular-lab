@@ -1,0 +1,23 @@
+<p>login works!</p>
+
+{{user|json}}
+<form #myloginform="ngForm">
+    <div class="form-group">
+      <label for="username">username</label>
+      <input type="text" aria-describedby="userHelp"  class="form-control"  placeholder="Enter username" name="username" id="username"#username="ngModel"[(ngModel)]="user.username" required     minlength="5">{{username.status}} >
+      <div class="alert alert-danger" [hidden]="username.valid || username.pristine">username should entre</div>
+      <div class="alert alert-danger" *ngIf="username.errors?.['minlength']"> username must be more 5</div>
+
+      {{username.errors|json}}
+      
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input type="password" name="password"  class="form-control" id="exampleInputPassword1" placeholder="Password" #password="ngModel" [(ngModel)]="user.password">
+      <div class="alert alert-danger" [hidden]="password.valid || password.pristine">error</div>
+    </div>
+   
+    <input type="button" value="login" (click)="login(myloginform.value)" [disabled]="myloginform.invalid">
+  </form>
+  {{myloginform.value|json}}
+  

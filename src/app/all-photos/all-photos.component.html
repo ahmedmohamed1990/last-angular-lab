@@ -1,0 +1,15 @@
+<p>all-photos works!</p>
+
+<div class="row">
+  <div class="col-md-6">
+    <h3>All Photos</h3>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <div class="row">
+      <div class="col-md-3" *ngFor="let image of photos">
+        <img [src]="image.url" class="img-thumbnail" />
+      </div>
+    </div>
+</div>
